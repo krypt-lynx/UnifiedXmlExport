@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedXmlExport", "UnifiedXmlExport\UnifiedXmlExport.csproj", "{F6258094-A4C6-4AC0-9398-FE858E66C2E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		1.1|Any CPU = 1.1|Any CPU
+		1.2|Any CPU = 1.2|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.1.1|Any CPU.ActiveCfg = 1.1|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.1.1|Any CPU.Build.0 = 1.1|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.1.2|Any CPU.ActiveCfg = 1.2|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.1.2|Any CPU.Build.0 = 1.2|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6258094-A4C6-4AC0-9398-FE858E66C2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70E8E1E5-3C01-47D7-885C-BE84409BEA2A}
+	EndGlobalSection
+EndGlobal
