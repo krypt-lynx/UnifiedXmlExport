@@ -51,20 +51,6 @@ namespace UnifiedXmlExport
                     Changed = (_, value) => Mod.Settings.indent = value,
                 })
                 );
-
-            var footer = AddElement(new CLabel
-            {
-                Title = $"Unified Xml Export version: {Mod.CommitInfo}",
-                TextAlignment = TextAnchor.LowerRight,
-                Color = new Color(1, 1, 1, 0.5f),
-                Font = GameFont.Tiny
-            });
-
-            this.AddConstraints(
-                footer.top ^ this.bottom + 3,
-                footer.width ^ footer.intrinsicWidth,
-                footer.right ^ this.right,
-                footer.height ^ footer.intrinsicHeight);
         }
 
     }

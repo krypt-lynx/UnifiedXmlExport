@@ -94,9 +94,14 @@ namespace UnifiedXmlExport
             return "Unified Xml Export";
         }
 
-        public override void ConstructGui()
+        public override string Version()
         {
-            Gui.Embed(Gui.AddElement(new SettingsView()));
+            return CommitInfo;
+        }
+
+        public override CElement CreateSettingsView()
+        {
+            return new SettingsView();
         }
     }
 

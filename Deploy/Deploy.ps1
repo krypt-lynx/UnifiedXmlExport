@@ -1,14 +1,33 @@
 # Configurable variables
-$repo           = '..'
-$packing        = 'packing'
-$outputFormat   = '..\..\UnifiedXmlExport-{0}.zip'
-$internalPath   = 'UnifiedXmlExport'
-$solution       = '..\Source\UnifiedXmlExport.sln'
-$target         = 'UnifiedXmlExport'
-$pathsToRemove  = '.git', '.vs', '.gitattributes', '.gitignore', 'Source', 'Deploy', 'Steam', 'Dependencies', '1.1/Assemblies/*.pdb', '1.1/Assemblies/*.xml', '1.2/Assemblies/*.pdb', '1.2/Assemblies/*.xml'
 
-$packageName    = 'Unified Xml Export'
-$packageId      = 'name.krypt.rimworld.unifiedxmlexport'
+
+$config = ".\Deploy.xml"
+
+[string]$packageId = (Select-Xml -Path $config -XPath '/config/about/packageId' | Select-Object -ExpandProperty Node).innerText
+[string]$packageName = (Select-Xml -Path $config -XPath '/config/about/packageName' | Select-Object -ExpandProperty Node).innerText
+
+[string]$solution = (Select-Xml -Path $config -XPath '/config/build/solution' | Select-Object -ExpandProperty Node).innerText
+[string]$target = (Select-Xml -Path $config -XPath '/config/build/target' | Select-Object -ExpandProperty Node).innerText
+[string]$platform = (Select-Xml -Path $config -XPath '/config/build/platform' | Select-Object -ExpandProperty Node).innerText
+
+
+[string[]]$configurations = Select-Xml -Path $config -XPath '/config/build/configurations/configuration/text()' | Foreach-Object {
+	($_ | Select-Object -ExpandProperty Node).Value
+}
+
+[string[]]$prebuildCleanup = Select-Xml -Path $config -XPath '/config/archive/prebuild/remove/path/text()' | Foreach-Object {
+	($_ | Select-Object -ExpandProperty Node).Value
+}
+
+[string]$repo = (Select-Xml -Path $config -XPath '/config/archive/repository' | Select-Object -ExpandProperty Node).innerText
+[string]$packing = (Select-Xml -Path $config -XPath '/config/archive/temp' | Select-Object -ExpandProperty Node).innerText
+[string]$outputFormat = (Select-Xml -Path $config -XPath '/config/archive/outputTemplate' | Select-Object -ExpandProperty Node).innerText
+[string]$internalPath = (Select-Xml -Path $config -XPath '/config/archive/modDirectory' | Select-Object -ExpandProperty Node).innerText
+
+[string[]]$pathsToRemove = Select-Xml -Path $config -XPath '/config/archive/postbuild/exclude/path/text()' | Foreach-Object {
+	($_ | Select-Object -ExpandProperty Node).Value
+}
+
 
 [Console]::ResetColor()
 
@@ -63,23 +82,21 @@ if (Test-Path $packing) { Remove-Item -Recurse -Force $packing }
 if (Test-Path $output) { Remove-Item $output }
 if (Test-Path $mod) { Remove-Item -Recurse -Force $mod }
 
-$Task = "Building 1.1..."
+Push-Location -Path $repo
+
+foreach ($path in $prebuildCleanup) {
+	if (Test-Path $path) { Remove-Item -Recurse -Force $path }
+}
+
+Pop-Location
+
+$Task = "Building..."
 $Step++
 Write-Progress -Id $Id -Activity $Activity -Status (& $StatusBlock) -CurrentOperation " " -PercentComplete ($Step / $TotalSteps * 100)
-
-pushd $rw
-git checkout tags/1.1
-popd 
-& $msbuild $solution /t:$target /p:Configuration="1.1" /p:Platform="Any CPU" /p:BuildProjectReferences=true
-
-$Task = "Building 1.2..."
-$Step++
-Write-Progress -Id $Id -Activity $Activity -Status (& $StatusBlock) -CurrentOperation " " -PercentComplete ($Step / $TotalSteps * 100)
-
-pushd $rw
-git checkout tags/1.2
-popd 
-& $msbuild $solution /t:$target /p:Configuration="1.2" /p:Platform="Any CPU" /p:BuildProjectReferences=true
+foreach ($configuration in $configurations) {
+	Echo "Building $configuration..."
+	& $msbuild $solution /p:Configuration=$configuration /p:BuildProjectReferences=true
+}
 
 # Prepating data
 $Task = "Copying..."
@@ -125,7 +142,7 @@ Write-Progress -Id $Id -Activity $Activity -Status (& $StatusBlock) -CurrentOper
 
 foreach ($path in $pathsToRemove) {
 	$p = $packingMod + '\' + $path
-	if (Test-Path $p) { Remove-Item -Recurse -Force $p }	
+		if (Test-Path $p) { Remove-Item -Recurse -Force $p }
 }
 
 # archiving
@@ -156,6 +173,7 @@ $Task = "Cleanup..."
 $Step++
 Write-Progress -Id $Id -Activity $Activity -Status (& $StatusBlock) -CurrentOperation " " -PercentComplete ($Step / $TotalSteps * 100)
 
+if (Test-Path $mod) { Remove-Item -Recurse -Force $mod }
 Move-Item -Path $packingMod -Destination $mod
 if (Test-Path $packing) { Remove-Item -Recurse -Force $packing }
 
