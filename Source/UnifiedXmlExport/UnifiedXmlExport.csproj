@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -50,45 +50,65 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.3|AnyCPU'">
+    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Condition=" '$(Configuration)|$(Platform)' == '1.1|AnyCPU' " Include="0Cassowary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.1\Assemblies\0Cassowary.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\Dev\RWLayout\1.1\Assemblies\0Cassowary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == '1.1|AnyCPU' " Include="0RWLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.1\Assemblies\0RWLayout.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\Dev\RWLayout\1.1\Assemblies\0RWLayout.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == '1.2|AnyCPU' " Include="0Cassowary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.2\Assemblies\0Cassowary.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\Dev\RWLayout\1.2\Assemblies\0Cassowary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == '1.2|AnyCPU' " Include="0RWLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.2\Assemblies\0RWLayout.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\Dev\RWLayout\1.2\Assemblies\0RWLayout.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+	    <Reference Condition=" '$(Configuration)|$(Platform)' == '1.3|AnyCPU' " Include="0Cassowary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\games\RimWorld\Mods\Dev\RWLayout\1.3\Assemblies\0Cassowary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Condition=" '$(Configuration)|$(Platform)' == '1.3|AnyCPU' " Include="0RWLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\games\RimWorld\Mods\Dev\RWLayout\1.3\Assemblies\0RWLayout.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " Include="0Cassowary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.2\Assemblies\0Cassowary.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.3\Assemblies\0Cassowary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " Include="0RWLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.2\Assemblies\0RWLayout.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.3\Assemblies\0RWLayout.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " Include="0Cassowary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.2\Assemblies\0Cassowary.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.3\Assemblies\0Cassowary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " Include="0RWLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.2\Assemblies\0RWLayout.dll</HintPath>
+      <HintPath>F:\games\RimWorld\Mods\RWLayout_dev\1.3\Assemblies\0RWLayout.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="0Harmony">
@@ -96,7 +116,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\Assembly-CSharp.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
     </Reference>
@@ -109,31 +129,31 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>F:\RWModBuild\1.3\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
